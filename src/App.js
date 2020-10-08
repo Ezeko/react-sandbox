@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import CustomButton from './Components/Button';
+import Input from './Components/Input';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+class App extends Component {
+  state ={
+    formValue: ''
+  };
+
+  //handles submission of form
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.state.formValue ?
+    alert(`Your entered value is ${this.state.formValue}`)
+    :  console.log('');
+  }
+
+  //handles change in input field
+  handleChange = (e) => this.setState({formValue: e.target.value})
+
+  render(){
+    return (
+      <div className="App">
+        <header className="App-header">
+        <h1>Form </h1>
+        </header>
+        <form onSubmit={this.handleSubmit}>
+          <Input type={'text'} id='input-field' placeholder= 'input field' onChange={this.handleChange} />
+          <CustomButton buttonName='Submit' id='submit-button' />
+        </form>
+        <hr />
+        {
+          this.state.formValue ? 
+          <h1>
+            Entered value is: {this.state.formValue}
+          </h1>
+          : 
+          '' 
+        }
+      </div>
   );
+  }
 }
 
 export default App;
