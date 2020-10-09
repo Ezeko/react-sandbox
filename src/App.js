@@ -11,10 +11,12 @@ class App extends Component {
 
   //handles submission of form
   handleSubmit = (e) => {
+    let form = e.target;
+    form.reset();
     e.preventDefault();
     this.state.formValue ?
     alert(`Your entered value is ${this.state.formValue}`)
-    :  console.log('');
+    :  console.log(e);
   }
 
   //handles change in input field

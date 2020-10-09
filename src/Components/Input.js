@@ -1,13 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class Input extends Component{
+function Input (props){
 
-    render(){
-        //make custom input tag
-        return(
-            <input type={this.props.type} required = {this.props.required} onChange = {this.props.onChange} id={this.props.id} placeholder ={this.props.placeholder} />
-        )
-    }
+    //make custom input tag
+    return(
+        <input type={props.type} required = {props.required} onChange = {props.onChange} id={props.id} placeholder ={props.placeholder} />
+    )
 }
 
 export default Input;

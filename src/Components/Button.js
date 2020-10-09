@@ -1,12 +1,10 @@
-import React, { Component} from 'react';
+import React from 'react';
 
-class CustomButton extends Component {
+function CustomButton (props) {
 
-    render(){
-        return(
-            <button id={this.props.id} onClick={this.props.handleClick}>{this.props.buttonName}  </button>
-        )
-    }
+    return(
+        <button id={props.id} onClick={props.handleClick}>{props.buttonName}  </button>
+    )
 }
 
 
