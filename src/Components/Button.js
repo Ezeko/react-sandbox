@@ -3,7 +3,7 @@ import React from 'react';
 function CustomButton (props) {
 
     return(
-        <button id={props.id} onClick={props.handleClick}>{props.buttonName}  </button>
+        <button id={props.id} onClick={props.handleClick} className={props.className}>{props.buttonName}  </button>
     )
 }
 

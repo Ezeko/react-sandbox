@@ -6,7 +6,8 @@ import Input from './Components/Input';
 
 class App extends Component {
   state ={
-    formValue: ''
+    formValue: '',
+    inputField: ''
   };
 
   //handles submission of form
@@ -14,13 +15,14 @@ class App extends Component {
     let form = e.target;
     form.reset();
     e.preventDefault();
-    this.state.formValue ?
-    alert(`Your entered value is ${this.state.formValue}`)
-    :  console.log(e);
+    if (this.state.inputField) { 
+      this.setState({inputField: ''})
+      alert(`Your entered value is ${this.state.inputField}`)
+     }
   }
 
   //handles change in input field
-  handleChange = (e) => this.setState({formValue: e.target.value})
+  handleChange = (e) => this.setState({formValue: e.target.value, inputField: e.target.value})
 
   render(){
     return (
@@ -30,7 +32,7 @@ class App extends Component {
         </header>
         <form onSubmit={this.handleSubmit}>
           <Input type={'text'} id='input-field' placeholder= 'input field' onChange={this.handleChange} />
-          <CustomButton buttonName='Submit' id='submit-button' />
+          <CustomButton buttonName='Submit' id='submit-button' className='btn btn-submit' />
         </form>
         <hr />
         {
